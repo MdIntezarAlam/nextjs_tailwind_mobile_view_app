@@ -43,8 +43,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="bg-black">
-      <div className="p-4 h-[615px] bg-black">
+    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  w-full h-[740px]">
+      <div className="p-4 ">
         <h1 className="text-2xl text-white font-semibold">
           Mobile-View Page Only
         </h1>
@@ -91,16 +91,15 @@ const Signup = () => {
         <div className="flex items-center justify-center my-5">
           <button
             onClick={handleSignUp}
-            className="rounded-full text-white bg-blue-950  px-6 py-2    text-center items-center"
+            className="rounded-full text-white bg-gradient-to-r from-black to-green-900 px-6 py-2    text-center items-center"
             type="button"
           >
             Login
           </button>
         </div>
       </div>
-      <div className="absolute bottom-0 ">
+      <div className="absolute bottom-0">
         <Footer />
-
       </div>
     </div>
   );

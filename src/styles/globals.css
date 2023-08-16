@@ -3,8 +3,5 @@
 @tailwind utilities;
 @media (max-width: 640px) {
   .mobile-only {
-    /*  mobile-only styles  */
-    /* border: 2px solid red; */
-    background-color: #000;
   }
 }

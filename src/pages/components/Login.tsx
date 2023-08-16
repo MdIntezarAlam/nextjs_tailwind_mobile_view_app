@@ -38,13 +38,12 @@ const Signup = () => {
     alert("Login successful! Redirecting to login page...");
     console.log("submitted");
     setTimeout(() => {
-      router.push('/components/Home'); // Replace with your login page route
+      router.push('/home'); // Replace with your login page route
     }, 2000);
   };
 
   return (
-    <div className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500  w-full h-[740px]">
-      <div className="p-4 ">
+       <div className="bg-gradient-to-r  from-purple-500 to-pink-500 w-full h-screen  mb-1 p-4">
         <h1 className="text-2xl text-white font-semibold">
           Mobile-View Page Only
         </h1>
@@ -87,7 +86,6 @@ const Signup = () => {
           />
         </div>
 
-
         <div className="flex items-center justify-center my-5">
           <button
             onClick={handleSignUp}
@@ -97,10 +95,6 @@ const Signup = () => {
             Login
           </button>
         </div>
-      </div>
-      <div className="absolute bottom-0">
-        <Footer />
-      </div>
     </div>
   );
 };

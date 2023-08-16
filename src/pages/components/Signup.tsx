@@ -10,7 +10,8 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    mobile: "",
+    username: "",
+   // mobile: "",
   });
 
   const InptChangeHandler = (e: { target: { name: any; value: any; }; }) => {
@@ -24,20 +25,25 @@ const Signup = () => {
   const handleSignUp = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
+    if (!formData.username.trim("")) {
+      alert("Please enter  Username ");
+      return;
+    }
     if (!formData.email || !formData.email.includes("@")) {
       alert("Please enter a valid email address");
       return;
     }
+  
 
     if (formData.password.length < 6 || formData.password.length > 8) {
       alert("Password should be between 6 and 8 characters");
       return;
     }
 
-    if (formData.mobile.length !== 10) {
-      alert("Mobile number should be 10 digits long");
-      return;
-    }
+    // if (formData.mobile.length !== 10) {
+    //   alert("Mobile number should be 10 digits long");
+    //   return;
+    // }
 
     // Validation passed, show success message and navigate to login page
     alert("Signup successful! Redirecting to login page...");
@@ -48,9 +54,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="bg-gradient-to-r from-purple-500 to-pink-500 w-full h-[740px]">
-      <div className="p-4">
-        <h1 className="text-2xl text-black font-semibold">
+    <div className="bg-gradient-to-r  overflow-y-scroll from-purple-500 to-pink-500 w-full h-screen  mb-1 p-4">
+         <h1 className="text-2xl text-black font-semibold">
           Mobile-View Page Only
         </h1>
         <p className="my-2 text-white">
@@ -65,6 +70,18 @@ const Signup = () => {
         </div>
 
         <div className="mt-2">
+          <label className="block text-white font-mediumtext-white">Name</label>
+          <input
+            autoComplete="off"
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={InptChangeHandler}
+            placeholder="Enter Username"
+            className="mt-1 block w-full px-3 py-2 bg-white  border border-slate-300 rounded-md text-black shadow-sm placeholder-slate-400 peer"
+          />
+        </div>
+         <div className="mt-2">
           <label className="block text-white font-mediumtext-white">Email</label>
           <input
             autoComplete="off"
@@ -92,7 +109,7 @@ const Signup = () => {
           />
         </div>
 
-        <div className="mt-5">
+        {/* <div className="mt-5">
           <label className="block text-white font-mediumtext-white">
             Mobile Number
           </label>
@@ -105,7 +122,7 @@ const Signup = () => {
             placeholder="Enter Mobile Number "
             className="mt-1 block w-full px-3 py-2 bg-white  border border-slate-300 rounded-md text-black shadow-sm placeholder-slate-400"
           />
-        </div>
+        </div> */}
         <div className="flex items-center justify-center my-5">
           <button
             onClick={handleSignUp}
@@ -116,10 +133,6 @@ const Signup = () => {
           </button>
         </div>
       </div>
-      <div className="absolute bottom-0">
-        <Footer />
-      </div>
-    </div>
   );
 };
 

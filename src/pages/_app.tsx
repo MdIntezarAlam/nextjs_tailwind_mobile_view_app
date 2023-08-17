@@ -4,8 +4,8 @@ import Footer from './components/Footer'
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  return   <>
+  return   <div className="lg:hidden block">
   <Component {...pageProps} />
   <Footer />
-  </>
+  </div>
 }

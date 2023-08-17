@@ -1,8 +1,22 @@
 import React from 'react'
-interface UserProps {
-  user: string;
+import { GetStaticProps } from 'next';
+
+
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
 }
-const SingleUser : React.FC<UserProps>=({user}) => {
+interface UserDetailsProps {
+  user: User;
+}
+
+
+const SingleUser :React.FC<UserDetailsProps>=({user}) => {
   return (
        <div className="bg-gradient-to-r  from-purple-500 to-pink-500 w-full h-screen flex flex-col items-center justify-center   mb-1 p-4">
 
@@ -20,9 +34,11 @@ const SingleUser : React.FC<UserProps>=({user}) => {
   )
 }
 
+
+
 export default SingleUser
 //define getStaticPaths
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const responce =await fetch("https://jsonplaceholder.typicode.com/users")
   const data = await responce.json()
 
@@ -41,14 +57,16 @@ export async function getStaticPaths() {
 }
 
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps<UserDetailsProps> = async (context) => {
+
   const {params}= context
   const responce =await fetch(`https://jsonplaceholder.typicode.com/users/${params.userId}`)
   const data = await responce.json()
 
   return{
     props:{
-        user:data
+        user:data,
+        revalidate: 3600,
     }
   }
 }

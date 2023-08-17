@@ -5,11 +5,22 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Link from 'next/link'
+import { GetStaticProps } from 'next';
 
-interface UserProps {
-  user: string;
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
 }
-const Home: React.FC<UserProps> = ({users}) => {
+
+interface UserDetailsProps {
+  user: User;
+}
+const Home: React.FC<UserDetailsProps> = ({users}) => {
     return (
         <div className="w-full h-screen bg-gradient-to-r overflow-y-scroll   from-purple-500 to-pink-500 mobile-only">
             <div className="p-4 container ">
@@ -52,7 +63,7 @@ export default Home;
 
 //get staticProps
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<UserDetailsProps> = async () => {
   const responce =await fetch("https://jsonplaceholder.typicode.com/users")
   const data = await responce.json()
 

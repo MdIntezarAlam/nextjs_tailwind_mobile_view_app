@@ -25,7 +25,7 @@ const Signup = () => {
   const handleSignUp = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!formData.username.trim("")) {
+    if (!formData.username=="") {
       alert("Please enter  Username ");
       return;
     }

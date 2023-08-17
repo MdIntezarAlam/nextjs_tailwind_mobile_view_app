@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import user from '../../../public/user.jpg'
 import Image from "next/image";
 import { useRouter } from "next/router";
-import Footer from "./Footer";
 import Link from 'next/link'
 import { GetStaticProps} from 'next';
 
@@ -22,7 +21,7 @@ interface User {
 }
 
 interface UserDetailsProps {
-  user: User;
+  users: User[];
 }
 const Home: React.FC<UserDetailsProps> = ({users}) => {
     return (

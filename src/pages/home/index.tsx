@@ -12,7 +12,11 @@ interface User {
   id: number;
   name: string;
   email: string;
-  address: Address;
+   address: {
+    city:STring,
+    street:String,
+    zeepcode:String
+  };
   phone: string;
   website: string;
 }

@@ -15,7 +15,7 @@ interface User {
    address: {
     city:String,
     street:String,
-    zeepcode:String
+    zipcode:String
   };
   phone: string;
   website: string;

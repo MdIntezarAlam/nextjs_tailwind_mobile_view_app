@@ -6,10 +6,10 @@ import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Link from 'next/link'
 
-interface mtypes{
-  users:String
+interface UserProps {
+  user: string;
 }
-const Home:React.Fc<mtypes> = ({users}) => {
+const Home: React.FC<UserProps> = ({users}) => {
     return (
         <div className="w-full h-screen bg-gradient-to-r overflow-y-scroll   from-purple-500 to-pink-500 mobile-only">
             <div className="p-4 container ">
@@ -19,7 +19,7 @@ const Home:React.Fc<mtypes> = ({users}) => {
               <h1 className="text-2xl text-black font-bold text-center">User Details Page</h1>
                {users.map((user)=>(
                   <div className="flex items-center justify-start flex-wrap" key={user.id}>
-                     <Link href={`home/${user.id}`} passHref className="bg-green-700 m-1 w-full p-1 rounded"> 
+                     <Link href={`home/${user.id}`}  className="bg-green-700 m-1 w-full p-1 rounded"> 
                         <p className="font-bold  text-[14px]">UserName:<span className="text-white tex-[12px] ms-5">{user.name}</span></p>
                         <p className="font-bold text-[14px]">Email:<span className="text-white tex-[12px] ms-5">{user.email}</span></p>
                         <p className="font-bold text-[14px]">Phone:<span className="text-white tex-[12px] ms-5">{user.phone}</span></p>

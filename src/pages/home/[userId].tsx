@@ -1,8 +1,8 @@
 import React from 'react'
-interface mtypes{
-  user:String
+interface UserProps {
+  user: string;
 }
-const SingleUser :React.Fc<mtypes>=({user}) => {
+const SingleUser : React.FC<UserProps>=({user}) => {
   return (
        <div className="bg-gradient-to-r  from-purple-500 to-pink-500 w-full h-screen flex flex-col items-center justify-center   mb-1 p-4">
 

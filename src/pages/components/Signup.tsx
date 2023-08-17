@@ -10,8 +10,7 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
-    username: "",
-   // mobile: "",
+    username:""
   });
 
   const InptChangeHandler = (e: { target: { name: any; value: any; }; }) => {
@@ -25,10 +24,6 @@ const Signup = () => {
   const handleSignUp = (e: { preventDefault: () => void }) => {
     e.preventDefault();
 
-    if (!formData.username=="") {
-      alert("Please enter  Username ");
-      return;
-    }
     if (!formData.email || !formData.email.includes("@")) {
       alert("Please enter a valid email address");
       return;
@@ -108,22 +103,7 @@ const Signup = () => {
             className="mt-1 block w-full px-3 py-2 bg-white  border border-slate-300 rounded-md text-black shadow-sm placeholder-slate-400 peer"
           />
         </div>
-
-        {/* <div className="mt-5">
-          <label className="block text-white font-mediumtext-white">
-            Mobile Number
-          </label>
-          <input
-            autoComplete="off"
-            type="number"
-            name="mobile"
-            value={formData.mobile}
-            onChange={InptChangeHandler}
-            placeholder="Enter Mobile Number "
-            className="mt-1 block w-full px-3 py-2 bg-white  border border-slate-300 rounded-md text-black shadow-sm placeholder-slate-400"
-          />
-        </div> */}
-        <div className="flex items-center justify-center my-5">
+          <div className="flex items-center justify-center my-5">
           <button
             onClick={handleSignUp}
             className="rounded-full text-white bg-gradient-to-r from-orange-900 to-black  px-6 py-2   text-center items-center"

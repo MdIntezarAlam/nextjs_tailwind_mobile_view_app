@@ -6,7 +6,10 @@ import { useRouter } from "next/router";
 import Footer from "./Footer";
 import Link from 'next/link'
 
-const Home = ({users}) => {
+interface mtypes{
+  users:String
+}
+const Home:React.Fc<mtypes> = ({users}) => {
     return (
         <div className="w-full h-screen bg-gradient-to-r overflow-y-scroll   from-purple-500 to-pink-500 mobile-only">
             <div className="p-4 container ">

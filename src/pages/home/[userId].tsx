@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetStaticProps } from 'next';
+import { GetStaticProps,GetStaticPaths } from 'next';
 
 
 
@@ -8,7 +8,7 @@ interface User {
   name: string;
   email: string;
   address: {
-    city:STring,
+    city:String,
     street:String,
     zeepcode:String
   };
